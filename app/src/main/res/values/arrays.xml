@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="DemosList">
+        <item>JSBridge</item>
+        <item>RxJavaDemo</item>
+        <item>MoreRxJavaDemo</item>
+        <item>RecyclerViewDemo</item>
+    </string-array>
+
+    <string-array name="HomeTabArray">
+        <item>@string/xyg_home_tab_live</item>
+        <item>@string/xyg_home_tab_recommand</item>
+        <item>@string/xyg_home_tab_zhuifan</item>
+        <item>@string/xyg_home_tab_partition</item>
+        <item>@string/xyg_home_tab_dynamic</item>
+        <item>@string/xyg_home_tab_finder</item>
+    </string-array>
+</resources>

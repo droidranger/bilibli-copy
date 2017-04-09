@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/side_nav_bar"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <com.ranger.xyg.xygapp.ui.view.XygDraweeView
+        android:id="@+id/xdv_header_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        fresco:roundAsCircle="true"
+        fresco:placeholderImage="@drawable/ic_noface" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:text="噼里啪啦"
+            android:textSize="@dimen/xyg_text_size_medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        <TextView
+            android:id="@+id/tv_user_level"
+            android:layout_toRightOf="@+id/tv_user_name"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:text="level 1"
+            android:textSize="@dimen/xyg_text_size_medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xyg_margin_10"
+        android:background="@drawable/bg_corner_4dp_green_out_line">
+        <TextView
+            android:id="@+id/tv_user_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_5"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/xyg_text_size_small"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="正式会员"/>
+    </RelativeLayout>
+
+</LinearLayout>

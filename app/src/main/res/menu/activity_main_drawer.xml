@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="首页" />
+        <item
+            android:id="@+id/nav_my_member"
+            android:icon="@drawable/ic_nav_vip"
+            android:title="我的大会员" />
+        <item
+            android:id="@+id/nav_memeber_points"
+            android:icon="@drawable/ic_nav_point"
+            android:title="会员积分" />
+        <item
+            android:id="@+id/nav_free_flow_service"
+            android:icon="@drawable/ic_nav_unicom"
+            android:title="免流量服务" />
+        <item
+            android:id="@+id/nav_outline_cache"
+            android:icon="@drawable/ic_download_grey_24dp"
+            android:title="离线缓存" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+            <item
+                android:id="@+id/nav_test"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Test" />
+            <item
+                android:id="@+id/nav_test_home"
+                android:icon="@drawable/ic_menu_send"
+                android:title="测试主页" />
+        </menu>
+    </item>
+
+</menu>

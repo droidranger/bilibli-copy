@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="color_23cc77">#23cc77</color>
+    <color name="color_fff1ea">#fff1ea</color>
+    <color name="xyg_color_11bf79">#11bf79</color>
+    <color name="xyg_color_light_gray">#eaeaea</color>
+    <color name="white">@android:color/white</color>
+</resources>
