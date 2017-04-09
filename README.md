@@ -1,0 +1,2 @@
+# bilibli-copy
+bilibili-copy
