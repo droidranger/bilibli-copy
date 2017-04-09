@@ -30,6 +30,6 @@ public class HomePartitionFragment extends BaseFragment {
     @Override
     protected void initViews() {
         super.initViews();
-        mFragNameTv.setText(HomeLiveFragment.class.getSimpleName());
+        mFragNameTv.setText(HomePartitionFragment.class.getSimpleName());
     }
 }

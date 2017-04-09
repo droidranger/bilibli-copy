@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.ui.listener.OnRecyclerViewItemClickListener;
-import com.ranger.xyg.xygapp.utils.log.LogUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

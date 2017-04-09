@@ -10,7 +10,6 @@ import android.support.v4.view.ViewPager;
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.ui.fragment.BaseFragment;
 import com.ranger.xyg.xygapp.ui.fragment.TabWithFragInfo;
-import com.ranger.xyg.xygapp.ui.view.common.PagerSlidingTabStrip;
 
 import java.util.ArrayList;
 import java.util.List;

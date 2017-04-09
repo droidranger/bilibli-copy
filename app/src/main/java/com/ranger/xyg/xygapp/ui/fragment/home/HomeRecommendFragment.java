@@ -30,7 +30,7 @@ public class HomeRecommendFragment extends BaseFragment {
     @Override
     protected void initViews() {
         super.initViews();
-        mFragNameTv.setText(HomeLiveFragment.class.getSimpleName());
+        mFragNameTv.setText(HomeRecommendFragment.class.getSimpleName());
     }
 
 }

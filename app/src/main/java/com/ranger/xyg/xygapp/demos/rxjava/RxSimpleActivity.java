@@ -1,13 +1,12 @@
 package com.ranger.xyg.xygapp.demos.rxjava;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.ui.activity.BaseActivity;
-import com.ranger.xyg.xygapp.utils.log.ToastUtils;
+import com.ranger.xyg.xygapp.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;

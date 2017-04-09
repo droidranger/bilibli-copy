@@ -31,6 +31,6 @@ public class VipMemberFragment extends BaseFragment {
     @Override
     protected void initViews() {
         super.initViews();
-        mFragNameTv.setText(HomeLiveFragment.class.getSimpleName());
+        mFragNameTv.setText(VipMemberFragment.class.getSimpleName());
     }
 }

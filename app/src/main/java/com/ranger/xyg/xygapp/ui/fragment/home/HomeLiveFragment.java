@@ -1,28 +1,29 @@
 package com.ranger.xyg.xygapp.ui.fragment.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.ui.fragment.BaseFragment;
-import com.ranger.xyg.xygapp.utils.log.ToastUtils;
+import com.ranger.xyg.xygapp.ui.view.list.BCRecyclerAdapter;
+import com.ranger.xyg.xygapp.ui.view.list.BCSwipeRefreshLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
 /**
  * Created by xyg on 2017/4/8.
  */
-public class HomeLiveFragment extends BaseFragment {
+public class HomeLiveFragment extends BaseFragment implements BCSwipeRefreshLayout.IRefreshListener {
 
-    @BindView(R.id.rv_live_list)
-    RecyclerView mLiveListRv;
-    @BindView(R.id.tv_frag_name)
-    TextView mFragNameTv;
     @BindView(R.id.srls_wipe_refresh_view)
-    SwipeRefreshLayout mSwipeRefreshView;
+    BCSwipeRefreshLayout<String> mSwipeRefreshView;
 
     public static HomeLiveFragment newInstance(Bundle bundle) {
         HomeLiveFragment fragment = new HomeLiveFragment();
@@ -38,29 +39,74 @@ public class HomeLiveFragment extends BaseFragment {
     @Override
     protected void initViews() {
         super.initViews();
-        mSwipeRefreshView.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-        mSwipeRefreshView.post(new Runnable() {
-            @Override
-            public void run() {
-                mSwipeRefreshView.setRefreshing(true);
-            }
-        });
-        mSwipeRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {// 下拉刷新
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        ToastUtils.showShort(getActivity(), "xialashuaxin");
-                    }
-                }, 3000);
-            }
-        });
-
-
+        mSwipeRefreshView.setAdapter(new LiveRecyclerAdapter(getActivity()));
+        mSwipeRefreshView.setRefreshListener(this);
     }
 
+    public class LiveRecyclerAdapter extends BCRecyclerAdapter<String> {
+
+        public LiveRecyclerAdapter(Context context) {
+            super(context);
+        }
+
+        @Override
+        protected ItemViewHolder getNormalItemHolder(ViewGroup parent) {
+            View view = mInflater.inflate(R.layout.item, parent, false);
+            return new StringViewHolder(view);
+        }
+
+        @Override
+        protected void invalidateItemByData(ItemViewHolder holder, String s) {
+            StringViewHolder stringViewHolder = (StringViewHolder) holder;
+            stringViewHolder.mNameTv.setText(s);
+        }
+
+        public class StringViewHolder extends ItemViewHolder {
+
+            @BindView(R.id.text)
+            public TextView mNameTv;
+
+            public StringViewHolder(View itemView) {
+                super(itemView);
+            }
+        }
+    }
+
+    private void loadData() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                List<String> newDatas = new ArrayList<>();
+                for (int i = 0; i < 10; i++) {
+                    int index = i + 1;
+                    newDatas.add("new item" + index);
+                }
+                mSwipeRefreshView.onLoadFinish(newDatas, 10);
+            }
+        }, 2000);
+    }
+
+    @Override
+    public void onRefresh() {
+        loadData();
+    }
+
+    @Override
+    public void onLoadMore() {
+        loadMoreData();
+    }
+
+    private void loadMoreData() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                List<String> newDatas = new ArrayList<>();
+                for (int i = 0; i < 5; i++) {
+                    int index = i + 1;
+                    newDatas.add("more item" + index);
+                }
+                mSwipeRefreshView.onLoadFinish(newDatas, 10);
+            }
+        }, 2000);
+    }
 }

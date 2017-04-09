@@ -1,4 +1,4 @@
-package com.ranger.xyg.xygapp.utils.log;
+package com.ranger.xyg.xygapp.utils;
 
 import android.content.Context;
 import android.widget.Toast;

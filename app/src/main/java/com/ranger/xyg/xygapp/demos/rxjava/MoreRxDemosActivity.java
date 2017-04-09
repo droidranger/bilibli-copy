@@ -4,7 +4,7 @@ import android.widget.TextView;
 
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.ui.activity.BaseActivity;
-import com.ranger.xyg.xygapp.utils.log.ToastUtils;
+import com.ranger.xyg.xygapp.utils.ToastUtils;
 
 import java.util.Arrays;
 import java.util.List;
