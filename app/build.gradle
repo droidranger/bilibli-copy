@@ -53,6 +53,8 @@ dependencies {
     compile 'com.trello:rxlifecycle-components:1.0'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.1@aar'
 
+    compile 'org.xutils:xutils:3.5.0'
+
     compile project(':xyg-library')
 
 }

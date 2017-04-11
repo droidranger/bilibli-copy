@@ -30,6 +30,7 @@ public abstract class BCRecyclerAdapter<T> extends RecyclerView.Adapter {
     public static final int NO_MORE_DATA = 0;
     public static final int TYPE_NORMAL_ITEM = 1;
     public static final int TYPE_FOOTER = 2;
+
     protected final LayoutInflater mInflater;
     protected List<T> mData;
     //上拉加载更多状态-默认为0
@@ -103,7 +104,7 @@ public abstract class BCRecyclerAdapter<T> extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return mData.size() + 1;
+        return mData.isEmpty() ? 0 : mData.size() + 1;
     }
 
     public static abstract class ItemViewHolder extends RecyclerView.ViewHolder {

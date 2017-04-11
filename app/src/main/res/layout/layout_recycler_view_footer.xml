@@ -6,8 +6,8 @@
 
     <ProgressBar
         android:id="@+id/pb_load_more"
-        android:layout_width="35dp"
-        android:layout_height="35dp" />
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/tv_load_status"

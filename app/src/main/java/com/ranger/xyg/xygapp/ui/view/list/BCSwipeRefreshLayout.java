@@ -83,6 +83,9 @@ public class BCSwipeRefreshLayout<T> extends SwipeRefreshLayout {
     }
 
     public void setAdapter(BCRecyclerAdapter<T> adapter) {
+        if (adapter == null) {
+            return;
+        }
         mAdapter = adapter;
         mLiveListRv.setAdapter(mAdapter);
         mLiveListRv.setOnScrollListener(new RecyclerView.OnScrollListener() {

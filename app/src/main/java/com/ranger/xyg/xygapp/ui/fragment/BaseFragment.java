@@ -44,6 +44,10 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
+    protected void initData() {
+
+    }
+
     protected void initSwipeRefresh() {
         /*if (mSwipeRefreshView == null) {
             return;
@@ -63,6 +67,7 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViews();
+        initData();
     }
 
     @Override
