@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <com.ranger.xyg.xygapp.ui.view.XygDraweeView
+        android:id="@+id/xdv_demo_header_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/xyg_margin_20"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        fresco:placeholderImage="@drawable/ic_noface"
+        fresco:roundAsCircle="true" />
+
+</LinearLayout>

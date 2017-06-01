@@ -3,15 +3,21 @@ package com.ranger.xyg.xygapp.ui.fragment.home;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ranger.xyg.library.tkrefreshlayout.RefreshListenerAdapter;
+import com.ranger.xyg.library.tkrefreshlayout.TwinklingRefreshLayout;
+import com.ranger.xyg.library.tkrefreshlayout.header.bezierlayout.BezierLayout;
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.bean.LiveParams;
+import com.ranger.xyg.xygapp.ui.adapter.base.BaseRecyclerAdapter;
+import com.ranger.xyg.xygapp.ui.adapter.base.CommonHolder;
 import com.ranger.xyg.xygapp.ui.fragment.BaseFragment;
-import com.ranger.xyg.xygapp.ui.view.list.BCRecyclerAdapter;
 import com.ranger.xyg.xygapp.ui.view.list.BCSwipeRefreshLayout;
 
 import org.xutils.common.Callback;
@@ -28,10 +34,13 @@ import static com.ranger.xyg.xygapp.bean.HttpConfig.LIVE_RECOMMEND_URL;
 /**
  * Created by xyg on 2017/4/8.
  */
-public class HomeLiveFragment extends BaseFragment implements BCSwipeRefreshLayout.IRefreshListener {
+public class HomeLiveFragment extends BaseFragment {
 
-    @BindView(R.id.srls_wipe_refresh_view)
-    BCSwipeRefreshLayout<String> mSwipeRefreshView;
+    @BindView(R.id.refresh)
+    TwinklingRefreshLayout mRefreshView;
+    @BindView(R.id.recyclerview)
+    RecyclerView mRecyclerView;
+    private LiveRecyclerAdapter mAdapter;
 
     public static HomeLiveFragment newInstance(Bundle bundle) {
         HomeLiveFragment fragment = new HomeLiveFragment();
@@ -47,40 +56,64 @@ public class HomeLiveFragment extends BaseFragment implements BCSwipeRefreshLayo
     @Override
     protected void initViews() {
         super.initViews();
-        mSwipeRefreshView.setAdapter(new LiveRecyclerAdapter(getActivity()));
-        mSwipeRefreshView.setRefreshListener(this);
+        setupRecyclerView(mRecyclerView);
     }
 
-    public class LiveRecyclerAdapter extends BCRecyclerAdapter<String> {
+    private void setupRecyclerView(RecyclerView rv) {
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mAdapter = new LiveRecyclerAdapter();
+        rv.setAdapter(mAdapter);
 
-        public LiveRecyclerAdapter(Context context) {
-            super(context);
-        }
+        BezierLayout headerView = new BezierLayout(getContext());
+        mRefreshView.setHeaderView(headerView);
+        mRefreshView.setMaxHeadHeight(140);
+//        refreshLayout.setFloatRefresh(true);
+//        refreshLayout.setPureScrollModeOn(true);
+        mRefreshView.setOverScrollBottomShow(false);
+//        refreshLayout.setAutoLoadMore(true);
+
+//        addHeader();
+        loadData(mRefreshView);
+
+        mRefreshView.setOnRefreshListener(new RefreshListenerAdapter() {
+            @Override
+            public void onRefresh(final TwinklingRefreshLayout refreshLayout) {
+                loadData(refreshLayout);
+            }
+
+            @Override
+            public void onLoadMore(final TwinklingRefreshLayout refreshLayout) {
+                loadMoreData(refreshLayout);
+            }
+        });
+
+        mRefreshView.startRefresh();
+    }
+
+    public class LiveRecyclerAdapter extends BaseRecyclerAdapter<String> {
 
         @Override
-        protected ItemViewHolder getNormalItemHolder(ViewGroup parent) {
-            View view = mInflater.inflate(R.layout.item, parent, false);
-            return new StringViewHolder(view);
+        public CommonHolder<String> setViewHolder(ViewGroup parent) {
+            return new ViewHolder(parent.getContext(), parent);
         }
 
-        @Override
-        protected void invalidateItemByData(ItemViewHolder holder, String s) {
-            StringViewHolder stringViewHolder = (StringViewHolder) holder;
-            stringViewHolder.mNameTv.setText(s);
-        }
-
-        public class StringViewHolder extends ItemViewHolder {
+        public class ViewHolder extends CommonHolder<String> {
 
             @BindView(R.id.text)
             public TextView mNameTv;
 
-            public StringViewHolder(View itemView) {
-                super(itemView);
+            public ViewHolder(Context context, ViewGroup root) {
+                super(context, root, R.layout.item);
+            }
+
+            @Override
+            public void bindData(String data) {
+                mNameTv.setText(data);
             }
         }
     }
 
-    private void loadData() {
+    private void loadData(final TwinklingRefreshLayout refreshLayout) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -89,22 +122,13 @@ public class HomeLiveFragment extends BaseFragment implements BCSwipeRefreshLayo
                     int index = i + 1;
                     newDatas.add("new item" + index);
                 }
-                mSwipeRefreshView.onLoadFinish(newDatas, 10);
+                mAdapter.setDataList(newDatas);
+                refreshLayout.finishRefreshing();
             }
         }, 2000);
     }
 
-    @Override
-    public void onRefresh() {
-        loadData();
-    }
-
-    @Override
-    public void onLoadMore() {
-        loadMoreData();
-    }
-
-    private void loadMoreData() {
+    private void loadMoreData(final TwinklingRefreshLayout refreshLayout) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -113,7 +137,8 @@ public class HomeLiveFragment extends BaseFragment implements BCSwipeRefreshLayo
                     int index = i + 1;
                     newDatas.add("more item" + index);
                 }
-                mSwipeRefreshView.onLoadFinish(newDatas, 10);
+                mAdapter.addItems(newDatas);
+                refreshLayout.finishLoadmore();
             }
         }, 2000);
     }
@@ -122,6 +147,8 @@ public class HomeLiveFragment extends BaseFragment implements BCSwipeRefreshLayo
     @Override
     protected void initData() {
         LiveParams params = new LiveParams(LIVE_RECOMMEND_URL);
+
+
         Callback.Cancelable cancelable = x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -146,6 +173,33 @@ public class HomeLiveFragment extends BaseFragment implements BCSwipeRefreshLayo
             @Override
             public void onCancelled(CancelledException cex) {
                 Toast.makeText(x.app(), "cancelled", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+        x.http().get(params, new Callback.CacheCallback<String>() {
+            @Override
+            public boolean onCache(String result) {
+                return false;
+            }
+
+            @Override
+            public void onSuccess(String result) {
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
             }
 
             @Override

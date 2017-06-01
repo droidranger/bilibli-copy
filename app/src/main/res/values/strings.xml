@@ -12,4 +12,6 @@
     <string name="xyg_home_tab_partition">分区</string>
     <string name="xyg_home_tab_dynamic">动态</string>
     <string name="xyg_home_tab_finder">发现</string>
+    <string name="xyg_export_apk">导出APK</string>
+    <string name="desc">xyg_accessibility</string>
 </resources>

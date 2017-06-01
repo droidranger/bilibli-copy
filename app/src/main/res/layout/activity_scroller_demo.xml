@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.ranger.xyg.xygapp.demos.scroll.MyViewGroup
+        android:id="@+id/my_view_group"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent">
+
+    </com.ranger.xyg.xygapp.demos.scroll.MyViewGroup>
+
+    <Button
+        android:id="@+id/btn_out_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击我会动哦"/>
+
+    <Button
+        android:id="@+id/btn_in_click"
+        android:layout_toRightOf="@+id/btn_out_click"
+        android:layout_marginLeft="@dimen/xyg_margin_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击我会回来哦"/>
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+Handler
+sendMessge()---->sendMessageDelayed---->sendMessageAtTime---->enqueueMessage
+enqueueMessage中将消息插入MessageQueue中，就是mQueue，看下mQueue从哪里来？
+看下Handler(Callback callback, boolean async)构造方法中：
+		mLooper = Looper.myLooper();
+        if (mLooper == null) {
+            throw new RuntimeException(
+                "Can't create handler inside thread that has not called Looper.prepare()");
+        }
+        mQueue = mLooper.mQueue;
+再看下mLooper来自哪里？
+		Looper.myLooper()
+看下Looper中这个方法：
+		/**
+     	* Return the Looper object associated with the current thread.  Returns
+     	* null if the calling thread is not associated with a Looper.
+     	*/
+    	public static @Nullable Looper myLooper() {
+        	return sThreadLocal.get();
+    	}
+是从sThreadLocal中获取的，看下sThreadLocal是个什么东东？以下是摘自任玉刚的博客：
+ThreadLocal是一个线程内部的数据存储类，通过它可以在指定的线程中存储数据，数据存储以后，只有在指定线程中可以获取到存储的数据，对于其它线程来说无法获取到数据.
+看下Looper中sThreadLocal定义，这里的sThreadLocal存储的是线程的Looper：
+		// sThreadLocal.get() will return null unless you've called prepare().
+    	static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+对于线程的Looper肯定是在自己的内部创建的，我们先看下主线程的Looper是怎么创建的。看下ActivityThread的main方法：
+		...
+		Looper.prepareMainLooper();
+
+        ActivityThread thread = new ActivityThread();
+        thread.attach(false);
+
+        if (sMainThreadHandler == null) {
+            sMainThreadHandler = thread.getHandler();
+        }
+
+        if (false) {
+            Looper.myLooper().setMessageLogging(new
+                    LogPrinter(Log.DEBUG, "ActivityThread"));
+        }
+
+        // End of event ActivityThreadMain.
+        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
+        Looper.loop();
+        ...
+看下Looper的类注释：线程默认是没有关联Looper的，必须在线程内部通过调用prepare来创建自己的Looper，并通过loop()方法来处理消息。
+这里主线程通过Looper.prepareMainLooper()来创建自己的Looper，并通过Looper.loop();循环处理消息队列的消息。
+主线程中调用了Looper.prepareMainLooper();最终会调用到prepare(boolean quitAllowed)，
+		private static void prepare(boolean quitAllowed) {
+	        if (sThreadLocal.get() != null) {
+	            throw new RuntimeException("Only one Looper may be created per thread");
+	        }
+	        sThreadLocal.set(new Looper(quitAllowed));
+	    }
+创建一个新的Looper存储到sThreadLocal中。这里看下这个构造函数：
+		private Looper(boolean quitAllowed) {
+	        mQueue = new MessageQueue(quitAllowed);
+	        mThread = Thread.currentThread();
+	    }
+mQueue在这里构建的。
+我们再来看下Looper.loop();在这个方法中有个for无限循环:
+		for (;;) {
+            Message msg = queue.next(); // might block
+            ...
+            msg.target.dispatchMessage(msg);
+            ...
+        }
+这个意思就是通过next不断的从消息队列中取消息，并通过msg.tartget分发出去，这里的target就是Handler。
+到这里，就基本明白了Android消息机制的运行原理了。以下简单描述下要点：
+1.每个线程可以创建自己的Looper而且是唯一的Looper
+2.Looper维护一个MessageQueue消息队列，消息队列内部是链表的数据结构，便于插入与删除
+3.Looper通过loop()方法循环读取消息队列中的消息，如果有新的消息就通过Message的target分发到对应的Handler处理
+
+
+
+
+
+
+
+
+
+
+
+
+
+

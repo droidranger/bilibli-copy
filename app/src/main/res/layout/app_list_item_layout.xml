@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_5"
+    android:layout_marginLeft="@dimen/padding_5"
+    android:layout_marginRight="@dimen/padding_5"
+    android:layout_marginBottom="@dimen/padding_5"
+    app:cardCornerRadius="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <com.ranger.xyg.xygapp.ui.view.XygDraweeView
+            android:id="@+id/xdv_app_list_item_header"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:placeholderImage="@drawable/ic_noface" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/xyg_margin_10"
+            android:layout_weight="1.0">
+
+            <TextView
+                android:id="@+id/tv_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/xyg_text_size_medium" />
+
+            <TextView
+                android:id="@+id/tv_app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_app_name"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/xyg_margin_15"
+                android:textColor="@color/color_23cc77"
+                android:textSize="@dimen/xyg_text_size_small" />
+
+            <TextView
+                android:id="@+id/tv_app_path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_app_name"
+                android:layout_marginTop="@dimen/xyg_margin_10"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/xyg_text_size_medium14" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btn_export_apk"
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:background="@color/Blue"
+            android:gravity="center"
+            android:text="@string/xyg_export_apk"
+            android:textColor="@color/Orange"
+            android:textSize="@dimen/xyg_text_size_small" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

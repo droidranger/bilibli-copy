@@ -136,7 +136,7 @@ public class LogUtils {
         logInfoStringBuilder.append("className=" + className).append(SEPARATOR);
         logInfoStringBuilder.append("methodName=" + methodName).append(SEPARATOR);
         logInfoStringBuilder.append("lineNumber=" + lineNumber);
-        logInfoStringBuilder.append(" ] ");
+        logInfoStringBuilder.append(" ] \n----msg----\n");
         return logInfoStringBuilder.toString();
     }
 }

@@ -1,11 +1,15 @@
 package com.ranger.xyg.xygapp.demos;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.demos.recycleview.NormalRecyclerViewAdapter;
+import com.ranger.xyg.xygapp.demos.retrofit.*;
+import com.ranger.xyg.xygapp.demos.scroll.MyScrollActivity;
+import com.ranger.xyg.xygapp.demos.video.LocalVideoActivity;
 import com.ranger.xyg.xygapp.ui.activity.BaseActivity;
 import com.ranger.xyg.xygapp.ui.listener.OnRecyclerViewItemClickListener;
 
@@ -37,7 +41,13 @@ public class SampleHomeActivity extends BaseActivity {
         mAdapter.setOnItemClickListener(new OnRecyclerViewItemClickListener<String>() {
             @Override
             public void onItemClick(View view, String data) {
-
+                if (data.equals("VideoViewDemo")){
+                    startActivity(new Intent(SampleHomeActivity.this, LocalVideoActivity.class));
+                } else if (data.equals("RetrofitDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, com.ranger.xyg.xygapp.demos.retrofit.RetrofitDemoActivity.class));
+                } if (data.equals("ScrollerDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, MyScrollActivity.class));
+                }
             }
         });
     }

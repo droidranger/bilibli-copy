@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
     <string-array name="DemosList">
-        <item>JSBridge</item>
-        <item>RxJavaDemo</item>
-        <item>MoreRxJavaDemo</item>
-        <item>RecyclerViewDemo</item>
+        <item android:id="@+id/jsbridge">JSBridge</item>
+        <item android:id="@+id/rxjava">RxJavaDemo</item>
+        <item android:id="@+id/morerxjava">MoreRxJavaDemo</item>
+        <item android:id="@+id/recyclerview">RecyclerViewDemo</item>
+        <item android:id="@+id/videoview">VideoViewDemo</item>
+        <item android:id="@+id/retrofitdemo">RetrofitDemo</item>
+        <item android:id="@+id/scrollerdemo">ScrollerDemo</item>
     </string-array>
 
     <string-array name="HomeTabArray">
@@ -15,4 +18,12 @@
         <item>@string/xyg_home_tab_dynamic</item>
         <item>@string/xyg_home_tab_finder</item>
     </string-array>
+
+    <item name="jsbridge" type="id" />
+    <item name="rxjava" type="id" />
+    <item name="morerxjava" type="id" />
+    <item name="recyclerview" type="id" />
+    <item name="videoview" type="id" />
+    <item name="retrofitdemo" type="id" />
+    <item name="scrollerdemo" type="id" />
 </resources>

@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ranger.xyg.xygapp.ui.view.list.BCSwipeRefreshLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/srls_wipe_refresh_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</com.ranger.xyg.xygapp.ui.view.list.BCSwipeRefreshLayout>
+    <com.ranger.xyg.library.tkrefreshlayout.TwinklingRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"/>
+
+    </com.ranger.xyg.library.tkrefreshlayout.TwinklingRefreshLayout>
+
+</LinearLayout>

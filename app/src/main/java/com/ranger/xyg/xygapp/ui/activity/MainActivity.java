@@ -24,6 +24,7 @@ import com.ranger.xyg.xygapp.demos.SampleHomeActivity;
 import com.ranger.xyg.xygapp.demos.recycleview.RecyclerViewDemoActivity;
 import com.ranger.xyg.xygapp.demos.rxjava.MoreRxDemosActivity;
 import com.ranger.xyg.xygapp.demos.rxjava.RxSimpleActivity;
+import com.ranger.xyg.xygapp.demos.scroll.MyScrollActivity;
 import com.ranger.xyg.xygapp.ui.fragment.home.HomeFragment;
 import com.ranger.xyg.xygapp.ui.fragment.member.VipMemberFragment;
 import com.ranger.xyg.xygapp.ui.view.XygDraweeView;
@@ -48,9 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setSupportActionBar(mToolbar);
-
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         mContentMain = (RelativeLayout) findViewById(R.id.content_main);
         mFabBtn = (FloatingActionButton) findViewById(R.id.fab);
         mNavView = (NavigationView) findViewById(R.id.nav_view);
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_free_flow_service) {
             startActivity(new Intent(this, RecyclerViewDemoActivity.class));
         } else if (id == R.id.nav_outline_cache) {
-            startActivity(new Intent(this, RecyclerViewDemoActivity.class));
+            startActivity(new Intent(this, AppXListActivity.class));
         } else if (id == R.id.nav_share) {
             startActivity(new Intent(this, MoreRxDemosActivity.class));
         } else if (id == R.id.nav_send) {

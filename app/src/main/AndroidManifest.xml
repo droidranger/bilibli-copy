@@ -6,11 +6,11 @@
     <application
         android:name=".XygApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        tools:replace="android:icon, android:theme"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon, android:theme">
         <activity
             android:name=".ui.activity.MainActivity"
             android:label="@string/app_name"
@@ -22,21 +22,54 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".demos.JSBridgeTestActivity"/>
+        <service android:name=".demos.accessibility.RobMoneyService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility"/>
+        </service>
 
-        <activity android:name=".demos.RetrofitDemoActivity"/>
+        <activity android:name=".demos.JSBridgeTestActivity" />
 
-        <activity android:name=".demos.rxjava.RxSimpleActivity"
+        <activity android:name=".demos.RetrofitDemoActivity" />
+
+        <activity
+            android:name=".demos.rxjava.RxSimpleActivity"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <activity
+            android:name=".demos.rxjava.MoreRxDemosActivity"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <activity
+            android:name=".demos.recycleview.RecyclerViewDemoActivity"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <activity android:name=".demos.retrofit.RetrofitDemoActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.rxjava.MoreRxDemosActivity"
+        <activity
+            android:name=".demos.SampleHomeActivity"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <activity android:name=".demos.video.LocalVideoActivity"
+            android:theme="@style/AppTheme.Transparent" />
+
+        <activity android:name=".ui.activity.AppListActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.recycleview.RecyclerViewDemoActivity"
+        <activity android:name=".ui.activity.AppXListActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.SampleHomeActivity"
+        <activity android:name=".demos.scroll.MyScrollActivity"
             android:theme="@style/AppTheme.Transparent"/>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
