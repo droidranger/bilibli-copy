@@ -11,4 +11,7 @@
     <color name="xyg_color_11bf79">#11bf79</color>
     <color name="xyg_color_light_gray">#eaeaea</color>
     <color name="white">@android:color/white</color>
+
+    <color name="dropDownContainerColor">#d32f2f</color>
+    <color name="dropDownSelectedColor">#b71c1c</color>
 </resources>

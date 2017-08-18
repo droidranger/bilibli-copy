@@ -5,13 +5,12 @@ import android.util.Log;
 
 import com.ranger.xyg.xygapp.demos.dbean.Course;
 import com.ranger.xyg.xygapp.demos.dbean.Student;
-import com.ranger.xyg.xygapp.utils.LogUtils;
+import com.ranger.xyg.library.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func1;

@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.ui.activity.BaseActivity;
-import com.ranger.xyg.xygapp.utils.ToastUtils;
+import com.ranger.xyg.library.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;

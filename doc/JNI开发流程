@@ -1,0 +1,24 @@
+
+1.首先确定好so库的名称，假如是xygJni.so
+2.写Java层代码：
+    （1）定义类
+    （2）然后加载so库，System.loadLibrary("xygJni");这里就是so库名称
+    （3）然后写Java层接口，记得Java层接口用native标示。这个接口跟native层的c接口是对应的。
+    对应关系是c层的接口名是：
+            Java_包名_类名_方法名
+        注意c层接口参数:
+            (JNIEnv* env, jobject instance)
+            第一个参数为Java虚拟机的内存地址的二级指针，用于本地方法与java虚拟机在内存中交互
+            第二个参数为一个java对象，即是哪个对象调用了这个c方法
+3.javac生成class文件
+4.javah -jni ....  生成.h头文件
+5.在main目录下新建一个jni目录
+6.把第4步生成的头文件移到jni目录下
+7.jni目录下新建.c文件
+8.c文件中实现.h声明的抽象方法，然后写相关逻辑
+9.写Android.mk文件
+10.配置build.gradle文件中的jni编译项
+11.rebuild项目生成so文件，在build/intermediates/ndkBuild目录下可以看到
+
+
+完结！！！

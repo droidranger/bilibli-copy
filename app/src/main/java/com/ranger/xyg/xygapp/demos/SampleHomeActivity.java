@@ -6,6 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.ranger.xyg.xygapp.R;
+import com.ranger.xyg.xygapp.demos.dropdown.DropDownActivity;
+import com.ranger.xyg.xygapp.demos.glide.GlideDemoActivity;
+import com.ranger.xyg.xygapp.demos.jni.JniDemosActivity;
+import com.ranger.xyg.xygapp.demos.ldia.AidlClientActivity;
 import com.ranger.xyg.xygapp.demos.recycleview.NormalRecyclerViewAdapter;
 import com.ranger.xyg.xygapp.demos.retrofit.*;
 import com.ranger.xyg.xygapp.demos.scroll.MyScrollActivity;
@@ -47,6 +51,14 @@ public class SampleHomeActivity extends BaseActivity {
                     startActivity(new Intent(SampleHomeActivity.this, com.ranger.xyg.xygapp.demos.retrofit.RetrofitDemoActivity.class));
                 } if (data.equals("ScrollerDemo")) {
                     startActivity(new Intent(SampleHomeActivity.this, MyScrollActivity.class));
+                } if (data.equals("GlideDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, GlideDemoActivity.class));
+                } if (data.equals("DropDownDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, DropDownActivity.class));
+                } if (data.equals("JniDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, JniDemosActivity.class));
+                } if (data.equals("AidlDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, AidlClientActivity.class));
                 }
             }
         });

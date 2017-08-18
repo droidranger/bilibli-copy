@@ -14,4 +14,9 @@
     <string name="xyg_home_tab_finder">发现</string>
     <string name="xyg_export_apk">导出APK</string>
     <string name="desc">xyg_accessibility</string>
+
+    <string name="standBrooklynLemonade">Brooklyn Lemonade</string>
+    <string name="standManhattanBourjeeSliders">Manhattan Bourjee Sliders</string>
+    <string name="standQueensAndCakes"><![CDATA[Queens & Cakes]]></string>
+    <string name="standBronxTea">Bronx Tea</string>
 </resources>

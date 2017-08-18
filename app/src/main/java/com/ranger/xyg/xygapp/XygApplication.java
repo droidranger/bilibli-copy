@@ -3,6 +3,7 @@ package com.ranger.xyg.xygapp;
 import android.app.Application;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.ranger.xyg.library.config.AppConfigLib;
 
 import org.xutils.x;
 
@@ -17,6 +18,11 @@ public class XygApplication extends Application{
         super.onCreate();
         initFresco();
         initXUtils();
+        initAppConfig();
+    }
+
+    private void initAppConfig() {
+        AppConfigLib.initScreen(this.getApplicationContext());
     }
 
     private void initXUtils() {

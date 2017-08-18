@@ -27,21 +27,32 @@ import java.util.Map;
  * overview.
  */
 public class LruCache<K, V> {
+    // 储存并操作KV的LinkedHashMap对象
     private final LinkedHashMap<K, V> map;
 
     /**
      * Size of this cache in units. Not necessarily the number of elements.
+     * 缓存的大小，并不一定等价于元素的个数
      */
     private int size;
+    // 缓存的最大大小
     private int maxSize;
 
+    // put方法调用次数
     private int putCount;
+    // 创建的次数
     private int createCount;
+    // 回收的次数
     private int evictionCount;
+    // 命中次数
     private int hitCount;
+    // 未命中次数
     private int missCount;
 
     /**
+     * 用maxSize初始化一个LruCache
+     * 没有重写sizeOf方法时，maxSize表示缓存中对象的最大数量
+     * 如果重写了这个方法，maxSize表示缓存中所有对象的大小之和的最大值
      * @param maxSize for caches that do not override {@link #sizeOf}, this is
      *                the maximum number of entries in the cache. For all other caches,
      *                this is the maximum sum of the sizes of the entries in this cache.
@@ -56,6 +67,7 @@ public class LruCache<K, V> {
 
     /**
      * Sets the size of the cache.
+     * 设置缓存大小
      *
      * @param maxSize The new maximum size.
      */
@@ -77,6 +89,7 @@ public class LruCache<K, V> {
      * be created.
      */
     public final V get(K key) {
+        // key不能为null
         if (key == null) {
             throw new NullPointerException("key == null");
         }
@@ -84,10 +97,12 @@ public class LruCache<K, V> {
         V mapValue;
         synchronized (this) {
             mapValue = map.get(key);
+            // 命中就返回value，hitCount自增1
             if (mapValue != null) {
                 hitCount++;
                 return mapValue;
             }
+            // 没命中，missCount自增1
             missCount++;
         }
 
@@ -97,20 +112,24 @@ public class LruCache<K, V> {
          * added to the map while create() was working, we leave that value in
          * the map and release the created value.
          */
-
+        // 创建一个value，如果create未被重写，默认返回null
         V createdValue = create(key);
         if (createdValue == null) {
             return null;
         }
 
         synchronized (this) {
+            // 创建次数自增1
             createCount++;
+            // 将新创建的value put下，并返回oldValue
             mapValue = map.put(key, createdValue);
 
+            // 如果mapValue不为null，有冲突，把这个mapValue重置入map
             if (mapValue != null) {
                 // There was a conflict so undo that last put
                 map.put(key, mapValue);
             } else {
+                // 如果没冲突，size自增1
                 size += safeSizeOf(key, createdValue);
             }
         }
@@ -156,6 +175,7 @@ public class LruCache<K, V> {
     /**
      * Remove the eldest entries until the total of remaining entries is at or
      * below the requested size.
+     *
      *
      * @param maxSize the maximum size of the cache before returning. May be -1
      *                to evict even 0-sized elements.
@@ -267,6 +287,7 @@ public class LruCache<K, V> {
      * Clear the cache, calling {@link #entryRemoved} on each removed entry.
      */
     public final void evictAll() {
+        // -1表示清除所有对象
         trimToSize(-1); // -1 will evict 0-sized elements
     }
 

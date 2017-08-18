@@ -4,4 +4,13 @@
     <color name="Yellow">#f4d227</color>
     <color name="Blue">#4674e7</color>
     <color name="Green">#0ba62c</color>
+
+    <!-- DropDownView -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="transparentGray">#99000000</color>
+    <color name="dDVTransparentGray">#99000000</color>
+    <color name="dDVColorPrimary">@color/colorPrimary</color>
 </resources>

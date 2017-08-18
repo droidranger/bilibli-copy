@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.ranger.xyg.xygapp.utils.LogUtils;
+import com.ranger.xyg.library.utils.LogUtils;
 
 /**
  * Created by xyg on 2017/3/18.

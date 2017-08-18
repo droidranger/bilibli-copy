@@ -70,6 +70,18 @@
         <activity android:name=".demos.scroll.MyScrollActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
+        <activity android:name=".demos.glide.GlideDemoActivity"
+            android:theme="@style/AppTheme.Transparent"/>
+
+        <activity android:name=".demos.dropdown.DropDownActivity"
+            android:theme="@style/AppTheme.Transparent"/>
+
+        <activity android:name=".demos.jni.JniDemosActivity"
+            android:theme="@style/AppTheme.Transparent"/>
+
+        <activity android:name=".demos.ldia.AidlClientActivity"
+            android:theme="@style/AppTheme.Transparent"/>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

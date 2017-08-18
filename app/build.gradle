@@ -8,7 +8,7 @@ apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.ranger.xyg.xygapp"
         minSdkVersion 16
@@ -17,15 +17,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        externalNativeBuild {
-            cmake {
-                //设置编译工具链
-                arguments "-DANDROID_TOOLCHAIN=clang"
-                //需编译生成的ABI类型
-                abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a'
-            }
-        }
         ndk {
+            moduleName "xygJni"
             //打包进APK的ABI类型
             abiFilters "armeabi", "armeabi-v7a", "x86"
         }
@@ -43,7 +36,7 @@ android {
         //数据库schema版本号，迁移等操作会用到
         schemaVersion 1
         //通过gradle插件生成的数据库相关文件的包名，默认为你的entity所在的包名
-        daoPackage 'com.ranger.xyg.xygapp.dao'
+        daoPackage 'com.ranger.xyg.xygapp.model.dao'
         //这就是我们上面说到的自定义生成数据库文件的目录了，可以将生成的文件放到我们的java目录中，而不是build中，这样就不用额外的设置资源目录了
         targetGenDir 'src/main/java'
     }
@@ -51,13 +44,21 @@ android {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
     }
     sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
-
     externalNativeBuild {
-        cmake {
-            path 'src/main/jni/CMakeLists.txt'
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/aidl']
         }
     }
 }
+
+def AAVersion = '4.3.0'
+def GlideVersion = '3.8.0'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -65,10 +66,11 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':xyg-library')
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:cardview-v7:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     testCompile 'junit:junit:4.12'
 
     compile 'com.facebook.fresco:fresco:1.1.0'
@@ -88,7 +90,28 @@ dependencies {
 
     //compile 'org.xutils:xutils:3.5.0'
 
+    compile 'com.google.dagger:dagger:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'org.greenrobot:greendao-generator:3.2.2' //代码生成器
+
+    // glide start
+    //annotationProcessor "com.github.bumptech.glide:compiler:$GlideVersion"
+    //compile "com.github.bumptech.glide:glide:$GlideVersion"
+    // end
+
+    // Architecture Components start
+    //compile "android.arch.lifecycle:runtime:1.0.0-alpha1"
+    //compile "android.arch.lifecycle:extensions:1.0.0-alpha1"
+    //annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha1"
+    //compile "android.arch.persistence.room:runtime:1.0.0-alpha1"
+    //annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha1"
+    //testCompile "android.arch.persistence.room:testing:1.0.0-alpha1"
+    //compile "android.arch.persistence.room:rxjava2:1.0.0-alpha1"
+    // end
 
 }

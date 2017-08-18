@@ -6,7 +6,7 @@ import android.app.PendingIntent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
-import com.ranger.xyg.xygapp.utils.LogUtils;
+import com.ranger.xyg.library.utils.LogUtils;
 
 import java.util.List;
 

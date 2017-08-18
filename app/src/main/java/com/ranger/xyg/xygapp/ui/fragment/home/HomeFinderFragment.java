@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.ui.fragment.BaseFragment;
-import com.ranger.xyg.xygapp.utils.LogUtils;
+import com.ranger.xyg.library.utils.LogUtils;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;

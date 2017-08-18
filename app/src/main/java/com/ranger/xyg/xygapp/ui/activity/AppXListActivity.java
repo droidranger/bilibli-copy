@@ -1,11 +1,7 @@
 package com.ranger.xyg.xygapp.ui.activity;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,17 +10,14 @@ import android.widget.TextView;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
-import com.ranger.xyg.library.tkrefreshlayout.RefreshListenerAdapter;
-import com.ranger.xyg.library.tkrefreshlayout.TwinklingRefreshLayout;
-import com.ranger.xyg.library.tkrefreshlayout.header.bezierlayout.BezierLayout;
 import com.ranger.xyg.xygapp.R;
 import com.ranger.xyg.xygapp.bean.AppInfo;
-import com.ranger.xyg.xygapp.process.hthread.HandlerThreadProcess;
+import com.ranger.xyg.xygapp.model.process.hthread.HandlerThreadProcess;
 import com.ranger.xyg.xygapp.ui.adapter.base.BaseRecyclerAdapter;
 import com.ranger.xyg.xygapp.ui.adapter.base.CommonHolder;
 import com.ranger.xyg.xygapp.ui.view.XygDraweeView;
 import com.ranger.xyg.xygapp.utils.ExtendUtils;
-import com.ranger.xyg.xygapp.utils.ToastUtils;
+import com.ranger.xyg.library.utils.ToastUtils;
 
 import java.util.List;
 

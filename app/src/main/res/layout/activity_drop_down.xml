@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Apache DropDownView
+  ~
+  ~ Copyright 2017 The Apache Software Foundation
+  ~ This product includes software developed at
+  ~ The Apache Software Foundation (http://www.apache.org/).
+  -->
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.ranger.xyg.library.views.DropDownView
+        android:id="@+id/drop_down_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:containerBackgroundColor="@color/dropDownContainerColor"
+        app:overlayColor="@color/transparentGray"/>
+
+    <Button
+        android:id="@+id/btn_goto"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="@string/app_name"/>
+
+</android.support.constraint.ConstraintLayout>
