@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".demos.accessibility.RobMoneyService"
+        <service android:name="com.ranger.xyg.demos.accessibility.RobMoneyService"
             android:enabled="true"
             android:exported="true"
             android:label="@string/app_name"
@@ -35,30 +35,30 @@
                 android:resource="@xml/accessibility"/>
         </service>
 
-        <activity android:name=".demos.JSBridgeTestActivity" />
+        <activity android:name="com.ranger.xyg.demos.JSBridgeTestActivity" />
 
-        <activity android:name=".demos.RetrofitDemoActivity" />
+        <activity android:name="com.ranger.xyg.demos.RetrofitDemoActivity" />
 
         <activity
-            android:name=".demos.rxjava.RxSimpleActivity"
+            android:name="com.ranger.xyg.demos.rxjava.RxSimpleActivity"
             android:theme="@style/AppTheme.Transparent" />
 
         <activity
-            android:name=".demos.rxjava.MoreRxDemosActivity"
+            android:name="com.ranger.xyg.demos.rxjava.MoreRxDemosActivity"
             android:theme="@style/AppTheme.Transparent" />
 
         <activity
-            android:name=".demos.recycleview.RecyclerViewDemoActivity"
+            android:name="com.ranger.xyg.demos.recycleview.RecyclerViewDemoActivity"
             android:theme="@style/AppTheme.Transparent" />
 
-        <activity android:name=".demos.retrofit.RetrofitDemoActivity"
+        <activity android:name="com.ranger.xyg.demos.retrofit.RetrofitDemoActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
         <activity
-            android:name=".demos.SampleHomeActivity"
+            android:name="com.ranger.xyg.demos.SampleHomeActivity"
             android:theme="@style/AppTheme.Transparent" />
 
-        <activity android:name=".demos.video.LocalVideoActivity"
+        <activity android:name="com.ranger.xyg.demos.video.LocalVideoActivity"
             android:theme="@style/AppTheme.Transparent" />
 
         <activity android:name=".ui.activity.AppListActivity"
@@ -67,19 +67,19 @@
         <activity android:name=".ui.activity.AppXListActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.scroll.MyScrollActivity"
+        <activity android:name="com.ranger.xyg.demos.scroll.MyScrollActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.glide.GlideDemoActivity"
+        <activity android:name="com.ranger.xyg.demos.glide.GlideDemoActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.dropdown.DropDownActivity"
+        <activity android:name="com.ranger.xyg.demos.dropdown.DropDownActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.jni.JniDemosActivity"
+        <activity android:name="com.ranger.xyg.demos.jni.JniDemosActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
-        <activity android:name=".demos.ldia.AidlClientActivity"
+        <activity android:name="com.ranger.xyg.demos.ldia.AidlClientActivity"
             android:theme="@style/AppTheme.Transparent"/>
 
     </application>

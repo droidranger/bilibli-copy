@@ -19,12 +19,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ranger.xyg.xygapp.R;
-import com.ranger.xyg.xygapp.demos.JSBridgeTestActivity;
-import com.ranger.xyg.xygapp.demos.SampleHomeActivity;
-import com.ranger.xyg.xygapp.demos.recycleview.RecyclerViewDemoActivity;
-import com.ranger.xyg.xygapp.demos.rxjava.MoreRxDemosActivity;
-import com.ranger.xyg.xygapp.demos.rxjava.RxSimpleActivity;
-import com.ranger.xyg.xygapp.demos.scroll.MyScrollActivity;
+import com.ranger.xyg.demos.JSBridgeTestActivity;
+import com.ranger.xyg.demos.SampleHomeActivity;
+import com.ranger.xyg.demos.recycleview.RecyclerViewDemoActivity;
+import com.ranger.xyg.demos.rxjava.MoreRxDemosActivity;
+import com.ranger.xyg.demos.rxjava.RxSimpleActivity;
 import com.ranger.xyg.xygapp.ui.fragment.home.HomeFragment;
 import com.ranger.xyg.xygapp.ui.fragment.member.VipMemberFragment;
 import com.ranger.xyg.xygapp.ui.view.XygDraweeView;

@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <com.ranger.xyg.xygapp.demos.scroll.MyViewGroup
+    <com.ranger.xyg.demos.scroll.MyViewGroup
         android:id="@+id/my_view_group"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent">
 
-    </com.ranger.xyg.xygapp.demos.scroll.MyViewGroup>
+    </com.ranger.xyg.demos.scroll.MyViewGroup>
 
     <Button
         android:id="@+id/btn_out_click"

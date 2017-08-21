@@ -1,1 +1,1 @@
-include ':app', ':xyg-library'
+include ':app', ':xyg-library', ':music'

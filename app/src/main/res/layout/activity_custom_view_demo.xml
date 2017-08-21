@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.ranger.xyg.xygapp.demos.view.TopBarLayout
+    <com.ranger.xyg.demos.view.TopBarLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
@@ -26,6 +26,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text"/>
 
-    </com.ranger.xyg.xygapp.demos.view.TopBarLayout>
+    </com.ranger.xyg.demos.view.TopBarLayout>
 
 </LinearLayout>

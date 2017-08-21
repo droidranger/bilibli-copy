@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/music/music.iml" filepath="$PROJECT_DIR$/music/music.iml" />
       <module fileurl="file://$PROJECT_DIR$/xyg-library/xyg-library.iml" filepath="$PROJECT_DIR$/xyg-library/xyg-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/xygapp.iml" filepath="$PROJECT_DIR$/xygapp.iml" />
     </modules>
