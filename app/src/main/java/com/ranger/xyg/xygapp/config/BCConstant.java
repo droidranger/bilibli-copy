@@ -10,4 +10,8 @@ public class BCConstant {
         int PAGE_LIMIT_TEN = 10;
         int PAGE_LIMIT_FIFTEEN = 15;
     }
+
+    public interface FingerConstant {
+        String FINGER_START_KEY = "FINGER_START_KEY";
+    }
 }

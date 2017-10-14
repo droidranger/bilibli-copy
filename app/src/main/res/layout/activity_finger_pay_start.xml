@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/xyg_margin_20"
+        android:text="@string/txt_finger_start_agreement_tips1"
+        android:textSize="@dimen/xyg_text_size_medium"/>
+
+    <TextView
+        android:id="@+id/tv_finger_agreement_tips2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="@dimen/xyg_margin_20"
+        android:gravity="center"
+        android:text="@string/txt_finger_start_agreement_tips2"
+        android:textSize="@dimen/xyg_text_size_medium"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/xyg_margin_20"
+        android:gravity="center_vertical"
+        android:background="@color/background_tab_pressed">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/txt_finger_pay"
+            android:textSize="@dimen/xyg_text_size_medium" />
+        <ImageView
+            android:id="@+id/cb_start_finger_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/radio_unselected"/>
+    </RelativeLayout>
+
+</LinearLayout>

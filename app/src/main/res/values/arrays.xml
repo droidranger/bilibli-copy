@@ -12,6 +12,8 @@
     <item name="dropdowndemo" type="id" />
     <item name="jnidemo" type="id" />
     <item name="aidldemo" type="id" />
+    <item name="fingerpaydemo" type="id" />
+    <item name="zxingpaydemo" type="id" />
 
     <string-array name="DemosList">
         <item android:id="@+id/jsbridge">JSBridge</item>
@@ -25,6 +27,8 @@
         <item android:id="@+id/dropdowndemo">DropDownDemo</item>
         <item android:id="@+id/jnidemo">JniDemo</item>
         <item android:id="@+id/aidldemo">AidlDemo</item>
+        <item android:id="@+id/fingerpaydemo">FingerPayDemo</item>
+        <item android:id="@+id/zxingpaydemo">ZxingPayDemo</item>
     </string-array>
 
     <string-array name="HomeTabArray">

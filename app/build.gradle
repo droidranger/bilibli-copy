@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 // greendao插件
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.jakewharton.butterknife'
 
 /*plugins {
     id "me.tatarka.retrolambda" version "3.2.4"
@@ -22,6 +24,11 @@ android {
             //打包进APK的ABI类型
             abiFilters "armeabi", "armeabi-v7a", "x86"
         }
+
+        //multiDexEnabled true
+    }
+    dexOptions {
+    	jumboMode true
     }
     buildTypes {
         release {
@@ -30,7 +37,10 @@ android {
         }
     }
     lintOptions {
-        warning 'InvalidPackage'
+          checkReleaseBuilds false
+          // Or, if you prefer, you can continue to check for errors in release builds,
+          // but continue the build even when errors are found:
+          abortOnError false
     }
     greendao {
         //数据库schema版本号，迁移等操作会用到
@@ -66,16 +76,19 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':xyg-library')
-    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-v4:23.1.1'
     testCompile 'junit:junit:4.12'
 
     compile 'com.facebook.fresco:fresco:1.1.0'
+
     compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
+
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
@@ -104,14 +117,11 @@ dependencies {
     //compile "com.github.bumptech.glide:glide:$GlideVersion"
     // end
 
-    // Architecture Components start
-    //compile "android.arch.lifecycle:runtime:1.0.0-alpha1"
-    //compile "android.arch.lifecycle:extensions:1.0.0-alpha1"
-    //annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha1"
-    //compile "android.arch.persistence.room:runtime:1.0.0-alpha1"
-    //annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha1"
-    //testCompile "android.arch.persistence.room:testing:1.0.0-alpha1"
-    //compile "android.arch.persistence.room:rxjava2:1.0.0-alpha1"
+    // add AndRouter
+    compile 'com.github.campusappcn.AndRouter:router:1.2.8'
+    apt 'com.github.campusappcn.AndRouter:compiler:1.2.8'
     // end
+
+    //compile 'com.android.support:multidex:1.0.0'
 
 }

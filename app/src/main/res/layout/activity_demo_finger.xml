@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_finger_status"
+        android:layout_margin="@dimen/xyg_margin_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/xyg_text_size_big"
+        android:text="@string/txt_finger_status1"/>
+
+    <Button
+        android:id="@+id/btn_finger"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="@string/txt_start_finger_pay"
+        android:layout_margin="@dimen/xyg_margin_20"/>
+
+</LinearLayout>

@@ -13,3 +13,12 @@ bilibili-copy
  在清单文件AndroidManifest.xml中修改两个地方
  1.在<manifest> 下添加  xmlns:tools="http://schemas.android.com/tools"
  2.在<application> 下添加tools:replace="android:icon, android:theme"
+
+
+集成AndRouter遇到的问题：
+按照github上的文档，集成androuter后，ButterKnife8.5.1的注解会不起作用，报空指针。
+将
+annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+改为
+apt 'com.jakewharton:butterknife-compiler:8.5.1'
+即可

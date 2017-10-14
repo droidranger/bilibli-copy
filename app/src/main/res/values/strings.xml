@@ -19,4 +19,32 @@
     <string name="standManhattanBourjeeSliders">Manhattan Bourjee Sliders</string>
     <string name="standQueensAndCakes"><![CDATA[Queens & Cakes]]></string>
     <string name="standBronxTea">Bronx Tea</string>
+    <string name="txt_finger_status1">准备支付</string>
+    <string name="txt_no_finger_permission">没有指纹识别权限</string>
+    <string name="txt_no_finger_hardware">没有指纹识别模块</string>
+    <string name="txt_no_launch_keyguard">没有开启锁屏密码</string>
+    <string name="txt_no_import_finger">没有录入指纹</string>
+    <string name="txt_start_finger_pay">开启指纹支付</string>
+    <string name="txt_finger_start_agreement_tips1">指纹支付仅对本机有效</string>
+    <string name="txt_finger_start_agreement_tips2">开通即视为同意《%1$s》</string>
+    <string name="txt_finger_start_agreement">指纹支付协议</string>
+    <string name="txt_finger_pay">指纹支付</string>
+    <string name="txt_finger_redo_count">还可重试%1$s次</string>
+    <string name="txt_finger_pay_success">指纹支付成功</string>
+    <string name="txt_finger_pay_failed">指纹支付失败</string>
+    <string name="txt_no_support_finger">手机不支持指纹支付</string>
+
+    <!--add package-->
+    <string name="scan_code">扫描</string>
+    <string name="tint_package_name">名称(可选)</string>
+    <string name="tint_package_number">运单号</string>
+    <string name="wrong_number_and_check">无效的运单号，请检查后重试。</string>
+    <string name="require_permission">你需要授予相机权限才能使用扫描功能。</string>
+    <string name="package_name_default_pre">包裹</string>
+    <string name="package_exist">运单号已经在你的列表里了，请不要重复添加。</string>
+    <string name="permission_denied">权限被拒绝</string>
+    <string name="error">错误</string>
+    <string name="something_wrong">发生了一些错误…</string>
+    <string name="unable_to_open_camera">无法打开相机，请检查后重试。</string>
+    <!--add package end-->
 </resources>
