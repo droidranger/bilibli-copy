@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/margin10"
+    android:paddingBottom="@dimen/margin10"
+    android:paddingRight="@dimen/margin20"
+    android:paddingLeft="@dimen/margin20">
+
+    <TextView
+        android:id="@+id/tv_menu_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_middle_size"
+        tools:text="升级为VIP" />
+
+    <TextView
+        android:id="@+id/tv_menu_item_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@color/txt_color_bfc0bf"
+        android:textSize="@dimen/txt_smaller_size"
+        tools:text="升级为VIP" />
+</RelativeLayout>

@@ -14,6 +14,8 @@
     <item name="aidldemo" type="id" />
     <item name="fingerpaydemo" type="id" />
     <item name="zxingpaydemo" type="id" />
+    <item name="shortcutsdemo" type="id" />
+    <item name="permissiondemo" type="id" />
 
     <string-array name="DemosList">
         <item android:id="@+id/jsbridge">JSBridge</item>
@@ -29,6 +31,8 @@
         <item android:id="@+id/aidldemo">AidlDemo</item>
         <item android:id="@+id/fingerpaydemo">FingerPayDemo</item>
         <item android:id="@+id/zxingpaydemo">ZxingPayDemo</item>
+        <item android:id="@+id/shortcutsdemo">ShortcutsDemo</item>
+        <item android:id="@+id/permissiondemo">PermissionDemo</item>
     </string-array>
 
     <string-array name="HomeTabArray">

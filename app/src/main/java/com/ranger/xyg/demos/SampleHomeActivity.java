@@ -15,8 +15,10 @@ import com.ranger.xyg.demos.finger.FingerActivity;
 import com.ranger.xyg.demos.glide.GlideDemoActivity;
 import com.ranger.xyg.demos.jni.JniDemosActivity;
 import com.ranger.xyg.demos.ldia.AidlClientActivity;
+import com.ranger.xyg.demos.permission.PermissionDemoActivity;
 import com.ranger.xyg.demos.recycleview.NormalRecyclerViewAdapter;
 import com.ranger.xyg.demos.scroll.MyScrollActivity;
+import com.ranger.xyg.demos.shortcuts.ShortcutsDemoActivity;
 import com.ranger.xyg.demos.video.LocalVideoActivity;
 import com.ranger.xyg.library.utils.ToastUtils;
 import com.ranger.xyg.xygapp.R;
@@ -89,6 +91,10 @@ public class SampleHomeActivity extends BaseActivity {
                                 .setAnimation(SampleHomeActivity.this, R.anim.in_from_left, R.anim.out_to_right)
                                 .open();*/
                     }
+                } else if (data.equals("ShortcutsDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, ShortcutsDemoActivity.class));
+                } else if (data.equals("PermissionDemo")) {
+                    startActivity(new Intent(SampleHomeActivity.this, PermissionDemoActivity.class));
                 }
             }
         });

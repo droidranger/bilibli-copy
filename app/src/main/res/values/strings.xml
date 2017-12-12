@@ -46,5 +46,25 @@
     <string name="error">错误</string>
     <string name="something_wrong">发生了一些错误…</string>
     <string name="unable_to_open_camera">无法打开相机，请检查后重试。</string>
+    <string name="txt_shortcuts_has_no_api">该系统版本不支持快捷方式</string>
+    <string name="short_label_baidu">百度</string>
+    <string name="long_label_baidu">打开百度</string>
+    <string name="short_label_csdn">CSDN</string>
+    <string name="long_label_csdn">打开CSDN</string>
+    <string name="add_shortcut_success">快捷方式添加成功!</string>
+    <string name="shortcut_already_exist">快捷方式已存在!</string>
+    <string name="shortcut_not_exist">快捷方式不存在!</string>
+    <string name="remove_shortcut_success">快捷方式移除成功!</string>
+
+    <string name="muti_permission_default_style">Mutl Permission(Default Style With Fade)</string>
+    <string name="muti_permission_blue_style">Mutl Permission(Blue Style With Scale)</string>
+    <string name="muti_permission_green_style">Mutl Permission(Green Style With Modal)</string>
+    <string name="single_permission">Single Permission</string>
+    <string name="permission_on_close">They cancelled our request</string>
+    <string name="permission_completed">All permissions requested completed</string>
+    <string name="permission_cus_item_camera">Camera</string>
+    <string name="permission_cus_item_phone">Call Phone</string>
+    <string name="permission_cus_title">Dear God</string>
+    <string name="permission_cus_msg">To protect the peace of the world, open these permissions! You and I together save the world!</string>
     <!--add package end-->
 </resources>
